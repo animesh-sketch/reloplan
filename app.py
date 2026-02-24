@@ -305,12 +305,368 @@ CITIES = {
     },
 }
 
+    "Chennai": {
+        "areas": {
+            "Adyar": {
+                "avg_rent": 22000, "safety": 5, "commute": 3, "social": 4,
+                "gym": True, "temple": True,
+                "desc": "Chennai's leafy, intellectual hub — IIT campus energy, Besant Nagar beach walks and top eateries.",
+                "tags": ["Safe", "Beach Nearby", "Intellectual", "Family"],
+                "restaurants": [
+                    {"name": "Ratna Cafe",           "cuisine": "South Indian", "rating": 4.8, "price": "₹",   "vibe": "Legendary sambar & idli"},
+                    {"name": "The Sandy Bar",        "cuisine": "Seafood",      "rating": 4.5, "price": "₹₹₹","vibe": "Beach-view dinner"},
+                    {"name": "Benjarong",            "cuisine": "Thai",         "rating": 4.4, "price": "₹₹₹","vibe": "Authentic Thai fine dine"},
+                    {"name": "Murugan Idli Shop",    "cuisine": "South Indian", "rating": 4.7, "price": "₹",   "vibe": "Soft idlis & chutneys"},
+                ],
+                "parties": [
+                    {"name": "The Flying Elephant",  "type": "Rooftop Bar",     "vibe": "Cocktails with sea breeze",  "cover": "Free"},
+                    {"name": "Leather Bar",          "type": "Pub",             "vibe": "Live rock & retro nights",   "cover": "₹300–₹600"},
+                    {"name": "10 Downing Street",    "type": "Gastropub",       "vibe": "Trivia nights & DJ sets",    "cover": "Free"},
+                    {"name": "Blend",                "type": "Lounge",          "vibe": "Chill weekend socials",      "cover": "Free"},
+                ],
+            },
+            "T. Nagar": {
+                "avg_rent": 18000, "safety": 4, "commute": 4, "social": 4,
+                "gym": True, "temple": True,
+                "desc": "Chennai's shopping capital — buzzing markets, famous temples and incredible street food.",
+                "tags": ["Shopping", "Street Food", "Temples", "Central"],
+                "restaurants": [
+                    {"name": "Saravana Bhavan",      "cuisine": "South Indian", "rating": 4.6, "price": "₹",   "vibe": "World-famous dosas"},
+                    {"name": "Anjappar",             "cuisine": "Chettinad",    "rating": 4.5, "price": "₹₹",  "vibe": "Spicy Chettinad classics"},
+                    {"name": "Junior Kuppanna",      "cuisine": "Tamil",        "rating": 4.6, "price": "₹₹",  "vibe": "Mutton curry & parotta"},
+                    {"name": "Buhari",               "cuisine": "Mughlai",      "rating": 4.4, "price": "₹₹",  "vibe": "Chicken 65 birthplace"},
+                ],
+                "parties": [
+                    {"name": "Geoffrey's",           "type": "Pub",             "vibe": "Classic Chennai pub nights", "cover": "Free"},
+                    {"name": "Pasha",                "type": "Club",            "vibe": "Bollywood & EDM nights",     "cover": "₹500–₹1,000"},
+                    {"name": "The Velveteen Rabbit", "type": "Craft Beer Bar",  "vibe": "Board games & brews",        "cover": "Free"},
+                    {"name": "Winking Monk",         "type": "Microbrewery",    "vibe": "Craft beer & live sport",    "cover": "Free"},
+                ],
+            },
+            "OMR (IT Corridor)": {
+                "avg_rent": 16000, "safety": 4, "commute": 3, "social": 3,
+                "gym": True, "temple": True,
+                "desc": "Chennai's IT spine — budget-friendly flats, tech parks and a growing food & social scene.",
+                "tags": ["IT Hub", "Affordable", "Growing", "Tech Parks"],
+                "restaurants": [
+                    {"name": "The Brew Room",        "cuisine": "Continental",  "rating": 4.3, "price": "₹₹",  "vibe": "Craft beer & burgers"},
+                    {"name": "Palmshore",            "cuisine": "Seafood",      "rating": 4.4, "price": "₹₹",  "vibe": "Fresh catch by the road"},
+                    {"name": "Cream Centre",         "cuisine": "Vegetarian",   "rating": 4.2, "price": "₹₹",  "vibe": "Comfort veg meals"},
+                    {"name": "Zara's Tapas Bar",     "cuisine": "Spanish",      "rating": 4.3, "price": "₹₹₹","vibe": "Tapas & sangria"},
+                ],
+                "parties": [
+                    {"name": "Toscano",              "type": "Bar & Grill",     "vibe": "Friday night parties",       "cover": "Free"},
+                    {"name": "SkyBar OMR",           "type": "Rooftop Lounge",  "vibe": "Sundowners & DJ weekends",   "cover": "Free–₹400"},
+                    {"name": "Bigfoot",              "type": "Live Music",      "vibe": "Indie & rock gigs",          "cover": "₹300–₹700"},
+                    {"name": "TC Social OMR",        "type": "Social Club",     "vibe": "Pop-up parties & mixers",    "cover": "Free"},
+                ],
+            },
+        }
+    },
+    "Kolkata": {
+        "areas": {
+            "Park Street": {
+                "avg_rent": 28000, "safety": 3, "commute": 4, "social": 5,
+                "gym": True, "temple": True,
+                "desc": "Kolkata's heartbeat — legendary restaurants, colonial architecture and the city's best nightlife.",
+                "tags": ["Heritage", "Nightlife", "Foodie", "Central"],
+                "restaurants": [
+                    {"name": "Peter Cat",            "cuisine": "Continental",  "rating": 4.7, "price": "₹₹",  "vibe": "Chelo kebab institution"},
+                    {"name": "Mocambo",              "cuisine": "Continental",  "rating": 4.6, "price": "₹₹",  "vibe": "Old-school Kolkata dining"},
+                    {"name": "Flurys",               "cuisine": "Bakery",       "rating": 4.5, "price": "₹₹",  "vibe": "Iconic patisserie since 1927"},
+                    {"name": "Oh! Calcutta",         "cuisine": "Bengali",      "rating": 4.5, "price": "₹₹₹","vibe": "Authentic Bengali fine dine"},
+                ],
+                "parties": [
+                    {"name": "Someplace Else",       "type": "Live Music Bar",  "vibe": "Kolkata's #1 rock venue",    "cover": "₹300–₹700"},
+                    {"name": "Tantra",               "type": "Club",            "vibe": "Bollywood & EDM nights",     "cover": "₹500–₹1,200"},
+                    {"name": "Shisha",               "type": "Lounge",          "vibe": "Rooftop hookah & cocktails", "cover": "Free"},
+                    {"name": "The Pint Room",        "type": "Craft Beer Bar",  "vibe": "Weekend tap takeovers",      "cover": "Free"},
+                ],
+            },
+            "Salt Lake": {
+                "avg_rent": 18000, "safety": 5, "commute": 3, "social": 3,
+                "gym": True, "temple": True,
+                "desc": "Planned township with wide roads, Sector V IT hub and a calm residential character.",
+                "tags": ["Planned", "IT Hub", "Safe", "Family"],
+                "restaurants": [
+                    {"name": "Bohemian",             "cuisine": "Bengali Fusion","rating": 4.6, "price": "₹₹₹","vibe": "Modern Bengali cuisine"},
+                    {"name": "6 Ballygunge Place",   "cuisine": "Bengali",      "rating": 4.7, "price": "₹₹₹","vibe": "Ancestral Bengali recipes"},
+                    {"name": "Momo I Am",            "cuisine": "Tibetan",      "rating": 4.4, "price": "₹",   "vibe": "Best momos in Kolkata"},
+                    {"name": "The Biryani Project",  "cuisine": "Biryani",      "rating": 4.5, "price": "₹₹",  "vibe": "Kolkata-style biriyani"},
+                ],
+                "parties": [
+                    {"name": "Bylanes",              "type": "Bar & Kitchen",   "vibe": "Chill weekend gatherings",   "cover": "Free"},
+                    {"name": "The Grid Sector V",    "type": "Sports Bar",      "vibe": "Match day watch parties",    "cover": "Free"},
+                    {"name": "Aqua",                 "type": "Pool Lounge",     "vibe": "Summer pool parties",        "cover": "₹500"},
+                    {"name": "Afraa",                "type": "Lounge Bar",      "vibe": "Saturday night mixers",      "cover": "Free–₹300"},
+                ],
+            },
+            "Ballygunge": {
+                "avg_rent": 24000, "safety": 4, "commute": 4, "social": 4,
+                "gym": True, "temple": True,
+                "desc": "Old-money Kolkata — leafy lanes, heritage buildings and the city's best Bengali food.",
+                "tags": ["Heritage", "Bengali Culture", "Leafy", "Foodie"],
+                "restaurants": [
+                    {"name": "Kasturi",              "cuisine": "Bengali",      "rating": 4.5, "price": "₹₹",  "vibe": "Kosha mangsho & luchi"},
+                    {"name": "Arsalan",              "cuisine": "Biryani",      "rating": 4.8, "price": "₹₹",  "vibe": "Legendary Kolkata biriyani"},
+                    {"name": "Aminia",               "cuisine": "Mughlai",      "rating": 4.6, "price": "₹₹",  "vibe": "Mutton rezala since 1929"},
+                    {"name": "Zeeshan",              "cuisine": "Mughlai",      "rating": 4.5, "price": "₹₹",  "vibe": "Haleem & rolls"},
+                ],
+                "parties": [
+                    {"name": "Taka Tak",             "type": "Bar",             "vibe": "Indie pop & Bong rock",      "cover": "Free–₹300"},
+                    {"name": "Olypub",               "type": "Pub",             "vibe": "Kolkata's oldest pub",       "cover": "Free"},
+                    {"name": "Corner Courtyard",     "type": "Boutique Hotel",  "vibe": "Jazz evenings & socials",    "cover": "Free"},
+                    {"name": "Soho",                 "type": "Lounge",          "vibe": "DJ nights & b-day parties",  "cover": "Free–₹500"},
+                ],
+            },
+        }
+    },
+    "Gurgaon": {
+        "areas": {
+            "Cyber City": {
+                "avg_rent": 35000, "safety": 4, "commute": 3, "social": 5,
+                "gym": True, "temple": True,
+                "desc": "India's corporate capital — glass towers, Michelin-star dining and a relentless nightlife scene.",
+                "tags": ["Corporate Hub", "Premium", "Nightlife", "Expat"],
+                "restaurants": [
+                    {"name": "Made in Punjab",       "cuisine": "Punjabi",      "rating": 4.5, "price": "₹₹₹","vibe": "Modern Punjabi classics"},
+                    {"name": "Farzi Café",           "cuisine": "Indian Fusion","rating": 4.6, "price": "₹₹₹","vibe": "Molecular Indian cuisine"},
+                    {"name": "Burma Burma",          "cuisine": "Burmese",      "rating": 4.7, "price": "₹₹₹","vibe": "Delhi NCR's best Burmese"},
+                    {"name": "The Beer Café",        "cuisine": "Bar Snacks",   "rating": 4.3, "price": "₹₹",  "vibe": "100+ beers on tap"},
+                ],
+                "parties": [
+                    {"name": "AER Bar",              "type": "Rooftop Club",    "vibe": "Skyline parties every Fri",  "cover": "₹1,000–₹2,000"},
+                    {"name": "Kitty Su Gurgaon",     "type": "Club",            "vibe": "India's top DJ nights",      "cover": "₹800–₹1,500"},
+                    {"name": "The Piano Man",        "type": "Jazz Club",       "vibe": "Live jazz & blues",          "cover": "₹500–₹1,000"},
+                    {"name": "Underdoggs Sports Bar","type": "Sports Bar",      "vibe": "Super Bowl & IPL parties",   "cover": "Free"},
+                ],
+            },
+            "Sohna Road": {
+                "avg_rent": 22000, "safety": 4, "commute": 3, "social": 3,
+                "gym": True, "temple": True,
+                "desc": "Fast-growing residential belt — new societies, good schools and peaceful weekends.",
+                "tags": ["Residential", "Growing", "Affordable", "New Societies"],
+                "restaurants": [
+                    {"name": "Barbeque Nation",      "cuisine": "BBQ",          "rating": 4.3, "price": "₹₹₹","vibe": "Weekend family grills"},
+                    {"name": "Pirates of Grill",     "cuisine": "BBQ",          "rating": 4.4, "price": "₹₹₹","vibe": "Live grill experience"},
+                    {"name": "Hao Shi Nian Dai",     "cuisine": "Chinese",      "rating": 4.2, "price": "₹₹",  "vibe": "Dim sum & noodles"},
+                    {"name": "Haldiram's",           "cuisine": "Multi",        "rating": 4.1, "price": "₹",   "vibe": "Quick comfort food"},
+                ],
+                "parties": [
+                    {"name": "Social Sohna Rd",      "type": "Social Club",     "vibe": "Weekend DJ & pop-ups",       "cover": "Free–₹300"},
+                    {"name": "Striker",              "type": "Sports Bar",      "vibe": "Pool tables & beer",         "cover": "Free"},
+                    {"name": "LIT Lounge",           "type": "Lounge Bar",      "vibe": "Saturday night mixers",      "cover": "Free"},
+                    {"name": "Hook & Cook",          "type": "Bar & Grill",     "vibe": "Sundowner terrace parties",  "cover": "Free"},
+                ],
+            },
+            "Golf Course Road": {
+                "avg_rent": 40000, "safety": 5, "commute": 4, "social": 4,
+                "gym": True, "temple": False,
+                "desc": "Gurgaon's premium address — luxury high-rises, 5-star hotels and a manicured lifestyle.",
+                "tags": ["Luxury", "Premium", "Safe", "Golf Course Views"],
+                "restaurants": [
+                    {"name": "Olive Bar & Kitchen",  "cuisine": "Mediterranean","rating": 4.6, "price": "₹₹₹₹","vibe": "Alfresco Mediterranean"},
+                    {"name": "Kylin Experience",     "cuisine": "Pan-Asian",    "rating": 4.5, "price": "₹₹₹","vibe": "Sushi & dim sum"},
+                    {"name": "Chaayos",              "cuisine": "Café",         "rating": 4.4, "price": "₹",   "vibe": "Meri wali chai"},
+                    {"name": "The Wine Company",     "cuisine": "Continental",  "rating": 4.5, "price": "₹₹₹₹","vibe": "Wine & cheese evenings"},
+                ],
+                "parties": [
+                    {"name": "21 Gun Salute",        "type": "Rooftop Lounge",  "vibe": "Heritage cocktail parties",  "cover": "₹800–₹1,500"},
+                    {"name": "Hops & Grains",        "type": "Microbrewery",    "vibe": "Craft beer socials",         "cover": "Free"},
+                    {"name": "Warehouse Café",       "type": "Club",            "vibe": "Commercial house nights",    "cover": "₹1,000–₹2,000"},
+                    {"name": "The Leela Bar",        "type": "Hotel Bar",       "vibe": "Upscale weekend socials",    "cover": "₹1,000"},
+                ],
+            },
+        }
+    },
+    "Kochi": {
+        "areas": {
+            "Fort Kochi": {
+                "avg_rent": 18000, "safety": 5, "commute": 3, "social": 5,
+                "gym": True, "temple": True,
+                "desc": "Kerala's jewel — Portuguese churches, Chinese fishing nets, spice markets and art galleries.",
+                "tags": ["Heritage", "Art Scene", "Backwaters", "Touristy"],
+                "restaurants": [
+                    {"name": "Oceanos",              "cuisine": "Seafood",      "rating": 4.6, "price": "₹₹₹","vibe": "Harbour-view fresh catch"},
+                    {"name": "Kashi Art Café",       "cuisine": "Fusion Café",  "rating": 4.5, "price": "₹₹",  "vibe": "Art gallery + breakfast"},
+                    {"name": "Dal Roti",             "cuisine": "North Indian", "rating": 4.4, "price": "₹₹",  "vibe": "Rajasthani thali in Kerala"},
+                    {"name": "History",              "cuisine": "Kerala",       "rating": 4.7, "price": "₹₹₹","vibe": "Heritage banana-leaf meals"},
+                ],
+                "parties": [
+                    {"name": "Loafer's Corner",      "type": "Beach Bar",       "vibe": "Sunset drinks on the waterfront","cover":"Free"},
+                    {"name": "Seagull Restaurant",   "type": "Waterfront Bar",  "vibe": "Backwater cocktail nights",  "cover": "Free"},
+                    {"name": "Teapot Café",          "type": "Café Bar",        "vibe": "Indie music & art nights",   "cover": "Free"},
+                    {"name": "Hotel Casino",         "type": "Hotel Bar",       "vibe": "Live band weekends",         "cover": "Free–₹400"},
+                ],
+            },
+            "Kakkanad": {
+                "avg_rent": 14000, "safety": 4, "commute": 3, "social": 3,
+                "gym": True, "temple": True,
+                "desc": "Kochi's IT hub — Infopark and SmartCity campuses, affordable living, fast-developing.",
+                "tags": ["IT Hub", "Affordable", "Infopark", "Developing"],
+                "restaurants": [
+                    {"name": "Dhe Puttu",            "cuisine": "Kerala",       "rating": 4.6, "price": "₹₹",  "vibe": "Puttu & kadala curry"},
+                    {"name": "Paragon",              "cuisine": "Malabar",      "rating": 4.5, "price": "₹₹",  "vibe": "Kerala biriyani & fish"},
+                    {"name": "Abad Nucleus Mall Food Court","cuisine":"Multi",  "rating": 4.1, "price": "₹₹",  "vibe": "Quick IT crowd lunches"},
+                    {"name": "Trattoria",            "cuisine": "Italian",      "rating": 4.3, "price": "₹₹₹","vibe": "Pasta & wood-fired pizza"},
+                ],
+                "parties": [
+                    {"name": "The Bier Library",     "type": "Craft Beer Bar",  "vibe": "Beer tasting events",        "cover": "Free"},
+                    {"name": "Privee Kochi",         "type": "Lounge Bar",      "vibe": "Weekend DJ nights",          "cover": "₹300–₹600"},
+                    {"name": "Lemon Tree Bar",       "type": "Hotel Bar",       "vibe": "Pool parties & sundowners",  "cover": "Free"},
+                    {"name": "Social Kakkanad",      "type": "Social Club",     "vibe": "Pop-up events & mixers",     "cover": "Free"},
+                ],
+            },
+            "Marine Drive": {
+                "avg_rent": 22000, "safety": 5, "commute": 4, "social": 4,
+                "gym": True, "temple": True,
+                "desc": "Kochi's scenic promenade — waterfront walks, premium apartments and the city's best views.",
+                "tags": ["Waterfront", "Premium", "Scenic", "Central"],
+                "restaurants": [
+                    {"name": "Fusion Bay",           "cuisine": "Seafood Fusion","rating": 4.5, "price": "₹₹₹","vibe": "Waterfront dining"},
+                    {"name": "Coconut Grove",        "cuisine": "Kerala",       "rating": 4.4, "price": "₹₹",  "vibe": "Authentic Kerala thali"},
+                    {"name": "The Rice Boat",        "cuisine": "Kerala",       "rating": 4.7, "price": "₹₹₹₹","vibe": "Luxury houseboat dining"},
+                    {"name": "Sea Lord",             "cuisine": "Seafood",      "rating": 4.3, "price": "₹₹",  "vibe": "Classic Kochi fish curry"},
+                ],
+                "parties": [
+                    {"name": "Sky Lounge Kochi",     "type": "Rooftop Bar",     "vibe": "Backwater view parties",     "cover": "Free–₹500"},
+                    {"name": "Latitude 10",          "type": "Club",            "vibe": "EDM & Bollywood nights",     "cover": "₹500–₹1,000"},
+                    {"name": "Harbour Lounge",       "type": "Waterfront Bar",  "vibe": "Sunset socials",             "cover": "Free"},
+                    {"name": "Xandari Harbour",      "type": "Boutique Bar",    "vibe": "Jazz & acoustic nights",     "cover": "Free–₹400"},
+                ],
+            },
+        }
+    },
+    "Jaipur": {
+        "areas": {
+            "C-Scheme": {
+                "avg_rent": 20000, "safety": 4, "commute": 3, "social": 4,
+                "gym": True, "temple": True,
+                "desc": "Jaipur's upscale residential heart — wide tree-lined streets, embassies and premium eateries.",
+                "tags": ["Upscale", "Central", "Premium", "Tree-Lined"],
+                "restaurants": [
+                    {"name": "Suvarna Mahal",        "cuisine": "Rajasthani",   "rating": 4.8, "price": "₹₹₹₹","vibe": "Royal palace dining"},
+                    {"name": "Niros",                "cuisine": "Multi-Cuisine","rating": 4.5, "price": "₹₹₹","vibe": "Jaipur institution since 1949"},
+                    {"name": "LMB (Laxmi Misthan)", "cuisine": "Rajasthani",   "rating": 4.6, "price": "₹₹",  "vibe": "Dal baati & ghevar"},
+                    {"name": "Peacock Rooftop",      "cuisine": "Continental",  "rating": 4.4, "price": "₹₹₹","vibe": "Hawa Mahal view dining"},
+                ],
+                "parties": [
+                    {"name": "Blackout",             "type": "Club",            "vibe": "Bollywood & commercial",     "cover": "₹500–₹1,000"},
+                    {"name": "The Sky High Lounge",  "type": "Rooftop Lounge",  "vibe": "City-view sundowners",       "cover": "Free"},
+                    {"name": "Bar Palladio",         "type": "Heritage Bar",    "vibe": "Blue Mughal nights",         "cover": "₹500"},
+                    {"name": "Madira",               "type": "Club",            "vibe": "Friday house party nights",  "cover": "₹300–₹800"},
+                ],
+            },
+            "Malviya Nagar": {
+                "avg_rent": 14000, "safety": 4, "commute": 4, "social": 3,
+                "gym": True, "temple": True,
+                "desc": "South Jaipur's IT & education hub — affordable, well-connected and quietly growing.",
+                "tags": ["Affordable", "IT Hub", "Students", "Peaceful"],
+                "restaurants": [
+                    {"name": "Spice Court",          "cuisine": "Rajasthani",   "rating": 4.5, "price": "₹₹",  "vibe": "Village-style dining"},
+                    {"name": "Rawat Misthan",        "cuisine": "Sweets",       "rating": 4.7, "price": "₹",   "vibe": "Pyaaz kachori & chai"},
+                    {"name": "Midway Restaurant",    "cuisine": "North Indian", "rating": 4.2, "price": "₹₹",  "vibe": "Dal makhani & rotis"},
+                    {"name": "Papad & Co",           "cuisine": "Rajasthani",   "rating": 4.3, "price": "₹",   "vibe": "Authentic thali"},
+                ],
+                "parties": [
+                    {"name": "Club Nahargarh",       "type": "Fort Club",       "vibe": "Fort-view sundowner parties","cover": "₹300–₹700"},
+                    {"name": "1135 AD",              "type": "Heritage Bar",    "vibe": "Royal fort ambience",        "cover": "₹500"},
+                    {"name": "Polo Bar",             "type": "Hotel Bar",       "vibe": "Classic Jaipur evenings",    "cover": "Free"},
+                    {"name": "Metro Bar & Kitchen",  "type": "Bar",             "vibe": "Weekend mixers & karaoke",   "cover": "Free"},
+                ],
+            },
+            "Vaishali Nagar": {
+                "avg_rent": 16000, "safety": 5, "commute": 3, "social": 4,
+                "gym": True, "temple": True,
+                "desc": "Jaipur's fastest-growing suburb — new malls, clean streets and a buzzing food scene.",
+                "tags": ["Fast Growing", "Clean", "Malls", "Young Crowd"],
+                "restaurants": [
+                    {"name": "Café Palladio",        "cuisine": "Italian",      "rating": 4.6, "price": "₹₹₹","vibe": "Blue Mughal garden café"},
+                    {"name": "Anokhi Café",          "cuisine": "Organic",      "rating": 4.5, "price": "₹₹",  "vibe": "Healthy salads & wraps"},
+                    {"name": "Tapri",                "cuisine": "Café",         "rating": 4.4, "price": "₹",   "vibe": "Chai, maggi & sunsets"},
+                    {"name": "Cinnamon",             "cuisine": "Continental",  "rating": 4.3, "price": "₹₹₹","vibe": "Brunch & wine pairings"},
+                ],
+                "parties": [
+                    {"name": "Yard Bar",             "type": "Craft Beer Bar",  "vibe": "Saturday beer garden nights","cover": "Free"},
+                    {"name": "The Leela Party Lawn", "type": "Party Lawn",      "vibe": "Outdoor house parties",      "cover": "₹500–₹1,000"},
+                    {"name": "Social Vaishali",      "type": "Social Club",     "vibe": "Indie pop-ups & DJ sets",    "cover": "Free–₹300"},
+                    {"name": "Ramba Amba",           "type": "Pub",             "vibe": "Karaoke & retro nights",     "cover": "Free"},
+                ],
+            },
+        }
+    },
+    "Chandigarh": {
+        "areas": {
+            "Sector 17": {
+                "avg_rent": 22000, "safety": 5, "commute": 4, "social": 5,
+                "gym": True, "temple": True,
+                "desc": "India's most planned city center — Le Corbusier's masterpiece, Plaza fountains and top restaurants.",
+                "tags": ["Planned City", "Central", "Heritage", "Clean"],
+                "restaurants": [
+                    {"name": "Pal Dhaba",            "cuisine": "Punjabi",      "rating": 4.7, "price": "₹",   "vibe": "Dal makhani & lassi"},
+                    {"name": "Sindhi Sweets",        "cuisine": "Sweets",       "rating": 4.6, "price": "₹",   "vibe": "Chandigarh's go-to mithai"},
+                    {"name": "Barbeque Nation",      "cuisine": "BBQ",          "rating": 4.4, "price": "₹₹₹","vibe": "Live grill experience"},
+                    {"name": "Café Hops",            "cuisine": "Café",         "rating": 4.3, "price": "₹₹",  "vibe": "Work café with great coffee"},
+                ],
+                "parties": [
+                    {"name": "Lava",                 "type": "Club",            "vibe": "Chandigarh's #1 EDM night",  "cover": "₹500–₹1,000"},
+                    {"name": "Club 9",               "type": "Club",            "vibe": "Bollywood & Punjabi hits",   "cover": "₹500–₹1,200"},
+                    {"name": "The Tavern",           "type": "Pub",             "vibe": "Live music & craft beer",    "cover": "Free"},
+                    {"name": "Hard Rock Café Chd",   "type": "Live Music",      "vibe": "Rock concerts & DJ nights",  "cover": "₹500–₹1,000"},
+                ],
+            },
+            "Panchkula": {
+                "avg_rent": 16000, "safety": 5, "commute": 3, "social": 3,
+                "gym": True, "temple": True,
+                "desc": "Quiet Haryana suburb next to Chandigarh — clean, planned, affordable and very safe.",
+                "tags": ["Very Safe", "Affordable", "Quiet", "Planned"],
+                "restaurants": [
+                    {"name": "Ghazal Restaurant",    "cuisine": "Punjabi",      "rating": 4.5, "price": "₹₹",  "vibe": "Dal makhani & naan"},
+                    {"name": "Nawabs",               "cuisine": "Mughlai",      "rating": 4.4, "price": "₹₹",  "vibe": "Kebabs & biryani"},
+                    {"name": "Saffron",              "cuisine": "Indian",       "rating": 4.3, "price": "₹₹₹","vibe": "Upscale family dining"},
+                    {"name": "Paaji Da Dhaba",       "cuisine": "Punjabi",      "rating": 4.6, "price": "₹",   "vibe": "Authentic dhaba vibes"},
+                ],
+                "parties": [
+                    {"name": "The Pulse",            "type": "Lounge Bar",      "vibe": "Weekend evening socials",    "cover": "Free"},
+                    {"name": "Sector 26 Social",     "type": "Bar",             "vibe": "DJ nights & trivia",         "cover": "Free"},
+                    {"name": "Holiday Inn Bar",      "type": "Hotel Bar",       "vibe": "Saturday live music",        "cover": "Free"},
+                    {"name": "Elante Club",          "type": "Mall Club",       "vibe": "Bollywood nights",           "cover": "₹300–₹600"},
+                ],
+            },
+            "IT Park (JLPL)": {
+                "avg_rent": 18000, "safety": 4, "commute": 3, "social": 3,
+                "gym": True, "temple": True,
+                "desc": "Chandigarh's emerging IT hub — tech campuses, modern apartments and budget-friendly living.",
+                "tags": ["IT Hub", "Modern", "Budget-Friendly", "Emerging"],
+                "restaurants": [
+                    {"name": "The Big Fish",         "cuisine": "Continental",  "rating": 4.3, "price": "₹₹",  "vibe": "IT crowd lunch spot"},
+                    {"name": "Wow Momos",            "cuisine": "Tibetan",      "rating": 4.2, "price": "₹",   "vibe": "Quick momo fix"},
+                    {"name": "Bercos",               "cuisine": "Chinese",      "rating": 4.4, "price": "₹₹",  "vibe": "Indo-Chinese classics"},
+                    {"name": "Subway",               "cuisine": "Sandwiches",   "rating": 4.0, "price": "₹",   "vibe": "Late office grab & go"},
+                ],
+                "parties": [
+                    {"name": "Pebble Street",        "type": "Pub",             "vibe": "Friday night unwinding",     "cover": "Free"},
+                    {"name": "Spice Route Bar",      "type": "Bar",             "vibe": "Weekend mixers & karaoke",   "cover": "Free"},
+                    {"name": "Warehouse Chd",        "type": "Club",            "vibe": "EDM & commercial house",     "cover": "₹400–₹800"},
+                    {"name": "Social IT Park",       "type": "Social Club",     "vibe": "Pop-up events & brunches",   "cover": "Free"},
+                ],
+            },
+        }
+    },
+}
+
 VENDORS = {
-    "Bangalore": {"accommodation":"NoBroker / MagicBricks","bike":"Royal Brothers · ₹3,000/mo","tiffin":"Homely Meals · ₹2,500/mo","maid":"UrbanCompany · ₹2,500/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Phoenix Marketcity","temple":"ISKCON / Bull Temple"},
-    "Mumbai":    {"accommodation":"NoBroker / Housing.com","bike":"Bounce · ₹4,000/mo","tiffin":"Mumbai Dabba · ₹3,500/mo","maid":"UrbanCompany · ₹3,000/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Phoenix Palladium","temple":"Siddhivinayak Temple"},
-    "Hyderabad": {"accommodation":"NoBroker / 99acres","bike":"Vogo · ₹1,500/mo","tiffin":"HydTiffin · ₹2,000/mo","maid":"UrbanCompany · ₹2,200/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Inorbit Mall","temple":"Birla Mandir"},
-    "Delhi":     {"accommodation":"NoBroker / CommonFloor","bike":"Royal Brothers · ₹3,500/mo","tiffin":"Delhi Dabba · ₹2,800/mo","maid":"UrbanCompany · ₹2,500/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Select City Walk","temple":"Akshardham Temple"},
-    "Pune":      {"accommodation":"NoBroker / MagicBricks","bike":"Royal Brothers · ₹2,800/mo","tiffin":"Pune Tiffin · ₹2,200/mo","maid":"UrbanCompany · ₹2,000/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Phoenix Marketcity Pune","temple":"Dagdusheth Temple"},
+    "Bangalore":  {"accommodation":"NoBroker / MagicBricks","bike":"Royal Brothers · ₹3,000/mo","tiffin":"Homely Meals · ₹2,500/mo","maid":"UrbanCompany · ₹2,500/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Phoenix Marketcity","temple":"ISKCON / Bull Temple"},
+    "Mumbai":     {"accommodation":"NoBroker / Housing.com","bike":"Bounce · ₹4,000/mo","tiffin":"Mumbai Dabba · ₹3,500/mo","maid":"UrbanCompany · ₹3,000/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Phoenix Palladium","temple":"Siddhivinayak Temple"},
+    "Hyderabad":  {"accommodation":"NoBroker / 99acres","bike":"Vogo · ₹1,500/mo","tiffin":"HydTiffin · ₹2,000/mo","maid":"UrbanCompany · ₹2,200/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Inorbit Mall","temple":"Birla Mandir"},
+    "Delhi":      {"accommodation":"NoBroker / CommonFloor","bike":"Royal Brothers · ₹3,500/mo","tiffin":"Delhi Dabba · ₹2,800/mo","maid":"UrbanCompany · ₹2,500/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Select City Walk","temple":"Akshardham Temple"},
+    "Pune":       {"accommodation":"NoBroker / MagicBricks","bike":"Royal Brothers · ₹2,800/mo","tiffin":"Pune Tiffin · ₹2,200/mo","maid":"UrbanCompany · ₹2,000/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Phoenix Marketcity Pune","temple":"Dagdusheth Temple"},
+    "Chennai":    {"accommodation":"NoBroker / MagicBricks","bike":"Bounce · ₹2,500/mo","tiffin":"Chennai Tiffin · ₹2,000/mo","maid":"UrbanCompany · ₹2,200/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Express Avenue Mall","temple":"Kapaleeshwarar Temple"},
+    "Kolkata":    {"accommodation":"NoBroker / 99acres","bike":"Yulu · ₹999/mo","tiffin":"Dabba Service · ₹2,200/mo","maid":"UrbanCompany · ₹2,000/mo","gym":"Cult.fit · ₹1,999/mo","mall":"South City Mall","temple":"Dakshineswar Kali Temple"},
+    "Gurgaon":    {"accommodation":"NoBroker / Housing.com","bike":"Royal Brothers · ₹3,500/mo","tiffin":"FreshMenu · ₹3,000/mo","maid":"UrbanCompany · ₹2,800/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Ambience Mall","temple":"Sheetla Mata Mandir"},
+    "Kochi":      {"accommodation":"NoBroker / MagicBricks","bike":"Bounce · ₹2,200/mo","tiffin":"Kerala Tiffin · ₹1,800/mo","maid":"UrbanCompany · ₹2,000/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Lulu Mall","temple":"Ernakulathappan Temple"},
+    "Jaipur":     {"accommodation":"NoBroker / 99acres","bike":"Royal Brothers · ₹2,500/mo","tiffin":"Rajasthani Tiffin · ₹1,800/mo","maid":"UrbanCompany · ₹1,800/mo","gym":"Cult.fit · ₹1,999/mo","mall":"World Trade Park","temple":"Birla Mandir Jaipur"},
+    "Chandigarh": {"accommodation":"NoBroker / MagicBricks","bike":"Royal Brothers · ₹2,500/mo","tiffin":"Punjabi Tiffin · ₹2,000/mo","maid":"UrbanCompany · ₹2,000/mo","gym":"Cult.fit · ₹1,999/mo","mall":"Elante Mall","temple":"Mansa Devi Temple"},
 }
 
 ADDON_COSTS = {"bike": 3000, "tiffin": 2500, "maid": 2500, "gym": 1999}
@@ -486,7 +842,7 @@ if st.session_state.page == "landing":
 
     st.markdown("""
     <div class="hero">
-      <div class="badge">✨ Smart Relocation · 5 Cities · 15 Areas</div>
+      <div class="badge">✨ Smart Relocation · 11 Cities · 33 Areas</div>
       <h1 style="font-size:2.8rem;font-weight:800;margin:.4rem 0;color:#fff;line-height:1.15">
         Find Your Perfect<br>City & Neighbourhood
       </h1>
@@ -551,14 +907,18 @@ if st.session_state.page == "landing":
 
     # Cities strip
     st.markdown("### Cities We Cover")
-    city_cols = st.columns(5)
-    icons = {"Bangalore":"🌿","Mumbai":"🌊","Hyderabad":"🍖","Delhi":"🏛️","Pune":"🎓"}
-    for col,(city,icon) in zip(city_cols, icons.items()):
+    icons = {
+        "Bangalore":"🌿","Mumbai":"🌊","Hyderabad":"🍖","Delhi":"🏛️","Pune":"🎓",
+        "Chennai":"🌊","Kolkata":"🎨","Gurgaon":"🏢","Kochi":"🌴","Jaipur":"🏰","Chandigarh":"🌸",
+    }
+    row1 = st.columns(6)
+    row2 = st.columns(5)
+    for col,(city,icon) in zip(row1+row2, icons.items()):
         col.markdown(f"""
-        <div class="metric">
-          <div style="font-size:1.8rem">{icon}</div>
-          <div style="font-weight:700;font-size:.9rem;margin-top:.2rem">{city}</div>
-          <div style="color:#94a3b8;font-size:.72rem">3 areas · curated</div>
+        <div class="metric" style="margin-bottom:.5rem">
+          <div style="font-size:1.5rem">{icon}</div>
+          <div style="font-weight:700;font-size:.82rem;margin-top:.2rem">{city}</div>
+          <div style="color:#94a3b8;font-size:.68rem">3 areas</div>
         </div>""", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────
