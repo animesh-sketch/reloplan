@@ -1087,86 +1087,207 @@ st.set_page_config(page_title="ReloPlan", page_icon="🏙️", layout="wide")
 
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-*{box-sizing:border-box}
-html,body,[class*="css"]{font-family:'Inter',sans-serif}
-.main>div{padding-top:.5rem}
-footer,header,#MainMenu{display:none}
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+*{box-sizing:border-box;-webkit-font-smoothing:antialiased}
+html,body,[class*="css"]{font-family:'Inter',sans-serif;color:#0f172a}
+.main>div{padding-top:0}
+footer,header,#MainMenu,#root > div:first-child{display:none}
+section[data-testid="stSidebar"]{display:none}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:#f1f5f9}
+::-webkit-scrollbar-thumb{background:#c7d2fe;border-radius:999px}
 
 /* ── Base Cards ── */
-.card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:1.4rem;margin-bottom:.75rem;
-      box-shadow:0 1px 4px rgba(0,0,0,.06);transition:box-shadow .2s}
-.card:hover{box-shadow:0 4px 16px rgba(0,0,0,.1)}
-.card-winner{border:2px solid #6366f1;box-shadow:0 0 0 4px rgba(99,102,241,.08)}
+.card{background:#fff;border:1px solid rgba(99,102,241,.12);border-radius:20px;
+  padding:1.5rem;margin-bottom:.8rem;
+  box-shadow:0 1px 3px rgba(0,0,0,.04),0 4px 16px rgba(99,102,241,.06);
+  transition:all .25s ease}
+.card:hover{box-shadow:0 4px 24px rgba(99,102,241,.15);transform:translateY(-2px)}
+.card-winner{border:2px solid #6366f1;
+  box-shadow:0 0 0 4px rgba(99,102,241,.08),0 8px 24px rgba(99,102,241,.15)}
 
 /* ── Hero ── */
-.hero{background:linear-gradient(135deg,#0f0c29,#302b63,#24243e);
-  border-radius:20px;padding:3rem 2rem;color:#fff;text-align:center;margin-bottom:1.5rem;
-  box-shadow:0 8px 32px rgba(99,102,241,.25)}
+.hero{position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#0f0c29 0%,#302b63 50%,#1a0533 100%);
+  border-radius:24px;padding:4rem 2rem 3.5rem;color:#fff;text-align:center;
+  margin-bottom:2rem;box-shadow:0 20px 60px rgba(99,102,241,.3)}
+.hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:radial-gradient(ellipse at 60% 40%,rgba(139,92,246,.25) 0%,transparent 60%),
+             radial-gradient(ellipse at 30% 70%,rgba(99,102,241,.2) 0%,transparent 50%);
+  animation:pulse 8s ease-in-out infinite alternate}
+@keyframes pulse{0%{transform:scale(1) rotate(0deg)}100%{transform:scale(1.1) rotate(3deg)}}
+.hero-content{position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.4rem;
+  background:rgba(255,255,255,.1);color:rgba(255,255,255,.9);border-radius:999px;
+  padding:.3rem 1rem;font-size:.78rem;font-weight:600;margin-bottom:1.2rem;
+  border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(10px)}
+.hero h1{font-size:3rem;font-weight:900;margin:.2rem 0 .8rem;color:#fff;
+  line-height:1.1;letter-spacing:-.03em}
+.hero h1 span{background:linear-gradient(135deg,#a5b4fc,#f0abfc);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{opacity:.8;max-width:520px;margin:0 auto 2rem;font-size:1rem;
+  font-weight:400;line-height:1.6}
+.hero-stats{display:flex;justify-content:center;gap:2.5rem;margin-top:2rem}
+.hero-stat{text-align:center}
+.hero-stat-num{font-size:1.8rem;font-weight:900;color:#a5b4fc}
+.hero-stat-label{font-size:.72rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.08em}
+
+/* ── Feature Tiles ── */
+.feature-tile{background:#fff;border:1px solid rgba(99,102,241,.1);border-radius:18px;
+  padding:1.4rem 1rem;text-align:center;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);transition:all .25s}
+.feature-tile:hover{border-color:#6366f1;box-shadow:0 8px 24px rgba(99,102,241,.15);
+  transform:translateY(-3px)}
+.feature-icon{width:52px;height:52px;border-radius:14px;display:flex;
+  align-items:center;justify-content:center;font-size:1.4rem;
+  margin:0 auto .8rem;background:linear-gradient(135deg,#ede9fe,#ddd6fe)}
+.feature-title{font-weight:700;font-size:.95rem;color:#1e1b4b;margin-bottom:.25rem}
+.feature-desc{color:#6b7280;font-size:.78rem;line-height:1.4}
+
+/* ── City Pills ── */
+.city-pill{background:#fff;border:1px solid rgba(99,102,241,.15);border-radius:14px;
+  padding:.8rem .6rem;text-align:center;cursor:pointer;transition:all .2s}
+.city-pill:hover{border-color:#6366f1;background:#f0f0ff}
+
+/* ── Section Header ── */
+.sec-header{display:flex;align-items:center;gap:.5rem;margin:1.5rem 0 .9rem}
+.sec-header-text{font-size:1.05rem;font-weight:700;color:#0f172a}
+.sec-header-line{flex:1;height:1px;background:linear-gradient(90deg,#e0e7ff,transparent)}
 
 /* ── Badges & Tags ── */
-.badge{display:inline-block;background:rgba(255,255,255,.12);color:#fff;border-radius:999px;
-  padding:.25rem 1rem;font-size:.78rem;font-weight:600;margin-bottom:.8rem;
+.badge{display:inline-block;background:rgba(255,255,255,.12);color:#fff;
+  border-radius:999px;padding:.25rem 1rem;font-size:.78rem;font-weight:600;
   border:1px solid rgba(255,255,255,.2)}
-.tag{display:inline-block;background:#f0f0ff;color:#4338ca;border-radius:6px;
-  padding:.2rem .6rem;font-size:.72rem;font-weight:600;margin:2px 2px 2px 0}
-.tag-green{background:#f0fdf4;color:#16a34a}
-.tag-orange{background:#fff7ed;color:#c2410c}
+.tag{display:inline-block;border-radius:8px;padding:.2rem .65rem;
+  font-size:.7rem;font-weight:700;margin:2px 2px 2px 0;letter-spacing:.01em}
+.tag-purple{background:#ede9fe;color:#5b21b6}
+.tag-blue{background:#dbeafe;color:#1e40af}
+.tag-green{background:#dcfce7;color:#15803d}
+.tag-orange{background:#ffedd5;color:#c2410c}
+
+/* ── Area Result Card ── */
+.area-card{background:#fff;border:1px solid rgba(99,102,241,.12);border-radius:20px;
+  overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.05);transition:all .25s}
+.area-card:hover{box-shadow:0 8px 24px rgba(99,102,241,.12)}
+.area-card-top{height:6px;background:linear-gradient(90deg,#6366f1,#8b5cf6,#a78bfa)}
+.area-card-winner .area-card-top{background:linear-gradient(90deg,#6366f1,#8b5cf6,#f0abfc)}
+.area-card-body{padding:1.4rem}
+
+/* ── Score Ring (text-based) ── */
+.score-ring{width:64px;height:64px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-weight:900;font-size:1rem;flex-shrink:0;
+  background:conic-gradient(var(--score-color) var(--score-pct),#e5e7eb 0)}
+.score-inner{width:52px;height:52px;border-radius:50%;background:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:800;
+  font-size:.85rem;color:#0f172a}
 
 /* ── Score Bar ── */
-.score-bar-bg{background:#e5e7eb;border-radius:999px;height:7px;margin:4px 0 10px}
-.score-bar{height:7px;border-radius:999px;transition:width .6s ease}
+.score-bar-wrap{margin-bottom:.6rem}
+.score-bar-label{display:flex;justify-content:space-between;font-size:.75rem;
+  color:#64748b;margin-bottom:.2rem;font-weight:500}
+.score-bar-bg{background:#f1f5f9;border-radius:999px;height:6px;overflow:hidden}
+.score-bar-fill{height:6px;border-radius:999px;transition:width .8s cubic-bezier(.4,0,.2,1)}
 
 /* ── Metric Box ── */
-.metric{background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:.8rem;text-align:center}
-.metric-label{font-size:.7rem;color:#94a3b8;font-weight:500;text-transform:uppercase;letter-spacing:.05em}
-.metric-value{font-size:1.2rem;font-weight:800;margin-top:.1rem}
+.metric{background:linear-gradient(135deg,#f8fafc,#f0f4ff);
+  border:1px solid rgba(99,102,241,.1);border-radius:14px;padding:.9rem;text-align:center;
+  transition:all .2s}
+.metric:hover{border-color:#6366f1;background:linear-gradient(135deg,#f0f0ff,#ede9fe)}
+.metric-label{font-size:.65rem;color:#94a3b8;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;margin-bottom:.2rem}
+.metric-value{font-size:1.15rem;font-weight:800}
 
-/* ── Place Card (restaurant / party) ── */
-.place-card{background:#fff;border:1px solid #f1f5f9;border-radius:12px;padding:1rem;
-  display:flex;align-items:flex-start;gap:.75rem;margin-bottom:.6rem;
-  box-shadow:0 1px 3px rgba(0,0,0,.04);transition:transform .15s,box-shadow .15s}
-.place-card:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
-.place-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;
-  justify-content:center;font-size:1.2rem;flex-shrink:0}
-.place-name{font-weight:700;font-size:.9rem;margin-bottom:.1rem}
-.place-sub{font-size:.78rem;color:#6b7280}
-.price-dot{font-size:.78rem;font-weight:700;color:#10b981}
-.rating{font-size:.78rem;color:#f59e0b;font-weight:700}
+/* ── Place Card ── */
+.place-card{background:#fff;border:1px solid #f1f5f9;border-radius:14px;
+  padding:1rem;display:flex;align-items:center;gap:.9rem;margin-bottom:.6rem;
+  box-shadow:0 1px 4px rgba(0,0,0,.04);transition:all .2s}
+.place-card:hover{border-color:#e0e7ff;box-shadow:0 4px 16px rgba(99,102,241,.1);
+  transform:translateY(-2px)}
+.place-icon{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;
+  justify-content:center;font-size:1.3rem;flex-shrink:0}
+.place-name{font-weight:700;font-size:.88rem;color:#0f172a;margin-bottom:.15rem}
+.place-sub{font-size:.75rem;color:#64748b;line-height:1.3}
+.place-rating{font-size:.78rem;color:#f59e0b;font-weight:700}
+.place-price{font-size:.75rem;font-weight:700;color:#10b981;margin-top:.1rem}
 
-/* ── Cost Row ── */
+/* ── Cost Table ── */
 .cost-row{display:flex;justify-content:space-between;align-items:center;
-  padding:.5rem 0;border-bottom:1px solid #f1f5f9;font-size:.9rem}
-.cost-total{background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:12px;
-  padding:1rem 1.25rem;margin-top:.75rem;display:flex;justify-content:space-between;align-items:center}
+  padding:.55rem .1rem;border-bottom:1px solid #f8fafc;font-size:.88rem}
+.cost-row:last-child{border-bottom:none}
+.cost-label{color:#374151;display:flex;align-items:center;gap:.4rem}
+.cost-amount{font-weight:700;color:#0f172a}
+.cost-total-box{background:linear-gradient(135deg,#1e1b4b,#4c1d95);
+  border-radius:16px;padding:1.1rem 1.3rem;margin-top:.9rem;
+  display:flex;justify-content:space-between;align-items:center;
+  box-shadow:0 4px 16px rgba(99,102,241,.3)}
+
+/* ── Bundle Row ── */
+.bundle-row{display:flex;align-items:center;gap:.75rem;padding:.6rem 0;
+  border-bottom:1px solid #f8fafc}
+.bundle-row:last-child{border-bottom:none}
+.bundle-icon{width:34px;height:34px;border-radius:10px;display:flex;align-items:center;
+  justify-content:center;font-size:1rem;flex-shrink:0;
+  background:linear-gradient(135deg,#ede9fe,#ddd6fe)}
+.bundle-label{flex:1;font-weight:600;font-size:.86rem;color:#1e1b4b}
+.bundle-vendor{font-size:.75rem;font-weight:600;color:#6366f1}
 
 /* ── Buttons ── */
-.stButton>button{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;border:none;
-  border-radius:10px;font-weight:700;width:100%;padding:.6rem 1rem;letter-spacing:.01em;
-  transition:all .2s}
-.stButton>button:hover{background:linear-gradient(135deg,#4f46e5,#7c3aed);
-  box-shadow:0 6px 20px rgba(99,102,241,.45);transform:translateY(-1px)}
+.stButton>button{background:linear-gradient(135deg,#6366f1,#7c3aed)!important;
+  color:#fff!important;border:none!important;border-radius:12px!important;
+  font-weight:700!important;width:100%!important;padding:.7rem 1.2rem!important;
+  font-size:.92rem!important;letter-spacing:.02em!important;
+  box-shadow:0 4px 14px rgba(99,102,241,.3)!important;transition:all .2s!important}
+.stButton>button:hover{background:linear-gradient(135deg,#4f46e5,#6d28d9)!important;
+  box-shadow:0 8px 24px rgba(99,102,241,.45)!important;
+  transform:translateY(-2px)!important}
+.stButton>button:active{transform:translateY(0)!important}
+
+/* ── Form ── */
+.stTextInput>div>div>input,.stSelectbox>div>div{
+  border-radius:10px!important;border-color:rgba(99,102,241,.2)!important}
+.stTextInput>div>div>input:focus{border-color:#6366f1!important;
+  box-shadow:0 0 0 3px rgba(99,102,241,.12)!important}
+
+/* ── WhatsApp Float ── */
+.wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:9999;
+  background:linear-gradient(135deg,#25d366,#128c7e);color:#fff;border-radius:999px;
+  padding:.75rem 1.3rem;font-weight:700;font-size:.85rem;text-decoration:none;
+  display:flex;align-items:center;gap:.5rem;
+  box-shadow:0 4px 20px rgba(37,211,102,.45),0 0 0 4px rgba(37,211,102,.1);
+  transition:all .25s;animation:wa-pulse 3s ease-in-out infinite}
+@keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.45),0 0 0 4px rgba(37,211,102,.1)}
+  50%{box-shadow:0 4px 28px rgba(37,211,102,.6),0 0 0 8px rgba(37,211,102,.08)}}
+.wa-float:hover{transform:translateY(-3px) scale(1.03);color:#fff;text-decoration:none}
 
 /* ── Nav ── */
-.nav-bar{display:flex;align-items:center;justify-content:space-between;
-  padding:.5rem 0;margin-bottom:.5rem}
-
-/* ── WhatsApp float ── */
-.wa-float{position:fixed;bottom:1.5rem;right:1.5rem;z-index:9999;background:#25d366;
-  color:#fff;border-radius:999px;padding:.7rem 1.2rem;font-weight:700;font-size:.88rem;
-  text-decoration:none;display:flex;align-items:center;gap:.5rem;
-  box-shadow:0 4px 20px rgba(37,211,102,.5);transition:all .2s}
-.wa-float:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(37,211,102,.6);
-  color:#fff;text-decoration:none}
+.nav-brand{font-size:1.3rem;font-weight:900;
+  background:linear-gradient(135deg,#6366f1,#8b5cf6);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 
 /* ── Instagram Form ── */
 .ig-border{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
-  border-radius:18px;padding:2px}
-.ig-inner{background:#fff;border-radius:16px;padding:1.5rem}
+  border-radius:20px;padding:2px;box-shadow:0 8px 24px rgba(131,58,180,.2)}
+.ig-inner{background:#fff;border-radius:18px;padding:1.5rem}
 
-/* ── Section header ── */
-.sec-header{font-size:1.1rem;font-weight:700;color:#111827;margin:1.2rem 0 .8rem;
-  display:flex;align-items:center;gap:.4rem}
+/* ── Steps (form) ── */
+.step-indicator{display:flex;align-items:center;gap:.5rem;margin-bottom:1.5rem}
+.step{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-size:.75rem;font-weight:700;flex-shrink:0}
+.step-active{background:linear-gradient(135deg,#6366f1,#8b5cf6);color:#fff;
+  box-shadow:0 2px 8px rgba(99,102,241,.4)}
+.step-done{background:#dcfce7;color:#16a34a}
+.step-pending{background:#f1f5f9;color:#94a3b8}
+.step-line{flex:1;height:2px;background:#e5e7eb;border-radius:999px}
+
+/* ── Expander ── */
+.streamlit-expanderHeader{font-weight:600!important;color:#374151!important}
+
+/* ── Tabs ── */
+.stTabs [data-baseweb="tab"]{font-weight:600;font-size:.88rem}
+.stTabs [aria-selected="true"]{color:#6366f1!important}
+.stTabs [data-baseweb="tab-highlight"]{background:#6366f1!important}
 </style>
 """, unsafe_allow_html=True)
 
@@ -1181,18 +1302,17 @@ def go(p): st.session_state.page = p; st.rerun()
 # ─────────────────────────────────────────────────────────────────
 # NAV
 # ─────────────────────────────────────────────────────────────────
-n = st.columns([3,1,1,1,1])
-n[0].markdown("## 🏙️ **ReloPlan**")
-with n[1]:
-    if st.button("🏠 Home"):     go("landing")
-with n[2]:
-    if st.button("📋 Plan"):     go("form")
-with n[3]:
-    if st.button("📊 Results"):  go("results")
-with n[4]:
-    if st.button("🔐 Admin"):    go("admin")
-st.markdown("<hr style='margin:.5rem 0 1rem;border:none;border-top:1px solid #e5e7eb'>",
-            unsafe_allow_html=True)
+_pg = st.session_state.page
+n = st.columns([2.5,1,1,1,1])
+n[0].markdown('<span class="nav-brand">🏙️ ReloPlan</span>', unsafe_allow_html=True)
+_btns = [("🏠 Home","landing"),("📋 Plan","form"),("📊 Results","results"),("🔐 Admin","admin")]
+for col,(_lbl,_pg_id) in zip(n[1:], _btns):
+    with col:
+        if st.button(_lbl, key=f"nav_{_pg_id}"):
+            go(_pg_id)
+st.markdown("""
+<div style="height:2px;background:linear-gradient(90deg,#6366f1,#8b5cf6,transparent);
+  border-radius:999px;margin:.25rem 0 1.25rem"></div>""", unsafe_allow_html=True)
 
 # WhatsApp float on every page
 st.markdown(
@@ -1219,13 +1339,13 @@ def place_cards(places, icon, bg):
         st.markdown(f"""
         <div class="place-card">
           <div class="place-icon" style="background:{bg}">{icon}</div>
-          <div style="flex:1">
+          <div style="flex:1;min-width:0">
             <div class="place-name">{p['name']}</div>
             <div class="place-sub">{detail1} · {detail2}</div>
           </div>
-          <div style="text-align:right;flex-shrink:0">
-            <div class="rating">{rating_str}</div>
-            <div class="price-dot">{price_str or cover_str}</div>
+          <div style="text-align:right;flex-shrink:0;margin-left:.5rem">
+            <div class="place-rating">{rating_str}</div>
+            <div class="place-price">{price_str or cover_str}</div>
           </div>
         </div>""", unsafe_allow_html=True)
 
@@ -1236,40 +1356,57 @@ if st.session_state.page == "landing":
 
     st.markdown("""
     <div class="hero">
-      <div class="badge">✨ Smart Relocation · 11 Cities · 33 Areas</div>
-      <h1 style="font-size:2.8rem;font-weight:800;margin:.4rem 0;color:#fff;line-height:1.15">
-        Find Your Perfect<br>City & Neighbourhood
-      </h1>
-      <p style="opacity:.8;max-width:540px;margin:.75rem auto 2rem;font-size:1.05rem;font-weight:400">
-        Budget match · commute score · restaurants · house parties · starter bundle —
-        your full relocation plan in 60 seconds.
-      </p>
+      <div class="hero-content">
+        <div class="hero-badge">✨ India's Smartest Relocation Planner</div>
+        <h1>Find Your <span>Perfect City</span><br>& Neighbourhood</h1>
+        <p>Budget match · commute score · restaurants · house parties ·<br>
+           starter bundle — your full plan in 60 seconds. No sign-up.</p>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-num">11</div>
+            <div class="hero-stat-label">Cities</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">55</div>
+            <div class="hero-stat-label">Areas</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">220+</div>
+            <div class="hero-stat-label">Restaurants</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-num">60s</div>
+            <div class="hero-stat-label">Plan Ready</div>
+          </div>
+        </div>
+      </div>
     </div>
     """, unsafe_allow_html=True)
 
     # Feature tiles
     tiles = [
         ("🎯","Smart Match",    "Scored on budget, commute & lifestyle"),
-        ("🍽","Restaurants",    "Top eats per area, curated & rated"),
-        ("🎉","House Parties",  "Best venues & social events nearby"),
+        ("🍽","Top Restaurants","Curated eats per area, rated & described"),
+        ("🎉","House Parties",  "Best nightlife & social venues nearby"),
         ("📦","Full Bundle",    "Housing, tiffin, maid, gym & more"),
-        ("💰","Cost Planner",   "See total monthly spend upfront"),
-        ("⚡","60-sec Plan",    "Instant results, no sign-up needed"),
+        ("💰","Cost Planner",   "Total monthly spend before you move"),
+        ("⚡","60-sec Plan",    "Instant results, zero sign-up needed"),
     ]
     r1 = st.columns(3)
     r2 = st.columns(3)
     for col, (icon, title, desc) in zip(r1+r2, tiles):
         col.markdown(f"""
-        <div class="card" style="text-align:center;padding:1.2rem .8rem">
-          <div style="font-size:1.8rem;margin-bottom:.35rem">{icon}</div>
-          <div style="font-weight:700;font-size:.95rem;margin-bottom:.2rem">{title}</div>
-          <div style="color:#6b7280;font-size:.8rem">{desc}</div>
+        <div class="feature-tile">
+          <div class="feature-icon">{icon}</div>
+          <div class="feature-title">{title}</div>
+          <div class="feature-desc">{desc}</div>
         </div>""", unsafe_allow_html=True)
 
     st.markdown("<br>", unsafe_allow_html=True)
-    _, mid, _ = st.columns([1,1,1])
+    _, mid, _ = st.columns([1,1.2,1])
     with mid:
-        if st.button("🚀  Start Planning My Move"): go("form")
+        if st.button("🚀  Start Planning My Move →"): go("form")
+    st.markdown("<p style='text-align:center;color:#94a3b8;font-size:.78rem;margin-top:.5rem'>No account needed · Free forever · Takes 60 seconds</p>", unsafe_allow_html=True)
 
     # Instagram Lead Form
     st.markdown("<br>", unsafe_allow_html=True)
@@ -1300,45 +1437,55 @@ if st.session_state.page == "landing":
                 st.success("✅ We'll WhatsApp your plan shortly!")
 
     # Cities strip
-    st.markdown("### Cities We Cover")
+    st.markdown("""<div class="sec-header">
+      <span class="sec-header-text">🗺️ Cities We Cover</span>
+      <div class="sec-header-line"></div>
+    </div>""", unsafe_allow_html=True)
     icons = {
         "Bangalore":"🌿","Mumbai":"🌊","Hyderabad":"🍖","Delhi":"🏛️","Pune":"🎓",
-        "Chennai":"🌊","Kolkata":"🎨","Gurgaon":"🏢","Kochi":"🌴","Jaipur":"🏰","Chandigarh":"🌸",
+        "Chennai":"🌞","Kolkata":"🎨","Gurgaon":"🏢","Kochi":"🌴","Jaipur":"🏰","Chandigarh":"🌸",
     }
     row1 = st.columns(6)
     row2 = st.columns(5)
     for col,(city,icon) in zip(row1+row2, icons.items()):
         col.markdown(f"""
-        <div class="metric" style="margin-bottom:.5rem">
-          <div style="font-size:1.5rem">{icon}</div>
-          <div style="font-weight:700;font-size:.82rem;margin-top:.2rem">{city}</div>
-          <div style="color:#94a3b8;font-size:.68rem">3 areas</div>
+        <div class="city-pill">
+          <div style="font-size:1.6rem;margin-bottom:.2rem">{icon}</div>
+          <div style="font-weight:700;font-size:.8rem;color:#1e1b4b">{city}</div>
+          <div style="color:#94a3b8;font-size:.65rem;margin-top:.1rem">5 areas</div>
         </div>""", unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────────────────────────
 # PAGE: FORM
 # ─────────────────────────────────────────────────────────────────
 elif st.session_state.page == "form":
 
-    st.markdown("## 📋 Plan Your Relocation")
-    st.markdown("<p style='color:#6b7280;margin-top:-.5rem'>Takes 60 seconds. No sign-up required.</p>",
-                unsafe_allow_html=True)
+    st.markdown("""
+    <div style="background:linear-gradient(135deg,#1e1b4b,#4c1d95);border-radius:20px;
+      padding:1.75rem 2rem;margin-bottom:1.5rem;
+      box-shadow:0 8px 24px rgba(99,102,241,.25)">
+      <h2 style="color:#fff;margin:0;font-size:1.6rem;font-weight:800">📋 Plan Your Relocation</h2>
+      <p style="color:rgba(255,255,255,.7);margin:.3rem 0 0;font-size:.9rem">
+        Takes 60 seconds · No sign-up · Instant results
+      </p>
+    </div>""", unsafe_allow_html=True)
 
     with st.form("relo_form"):
         c1, c2 = st.columns(2)
         with c1:
-            st.markdown("**👤 About You**")
+            st.markdown('<div style="font-weight:800;font-size:.9rem;color:#1e1b4b;margin-bottom:.5rem;padding:.4rem .7rem;background:#f0f0ff;border-radius:8px;display:inline-block">👤 About You</div>', unsafe_allow_html=True)
             name   = st.text_input("Your Name",   placeholder="Rahul Sharma")
             phone  = st.text_input("Phone (optional)", placeholder="For WhatsApp delivery")
             city   = st.selectbox("Target City",  list(CITIES.keys()))
             budget = st.slider("Monthly Rent Budget", 10000, 60000, 22000, 1000, format="₹%d")
         with c2:
-            st.markdown("**🎯 Your Priorities**")
+            st.markdown('<div style="font-weight:800;font-size:.9rem;color:#1e1b4b;margin-bottom:.5rem;padding:.4rem .7rem;background:#f0f0ff;border-radius:8px;display:inline-block">🎯 Your Priorities</div>', unsafe_allow_html=True)
             lifestyle = st.multiselect("Lifestyle Preferences",
                 ["Safety","Nightlife & Social","Fitness","Spiritual / Temple","Family-Friendly","Foodie"],
                 default=["Safety","Fitness"])
             work_loc = st.text_input("Work Location", placeholder="e.g. Electronic City, Cyber City")
-            st.markdown("**🛍 Add-on Services**")
+            st.markdown('<div style="font-weight:800;font-size:.9rem;color:#1e1b4b;margin-bottom:.5rem;padding:.4rem .7rem;background:#f0f0ff;border-radius:8px;display:inline-block">🛍 Add-on Services</div>', unsafe_allow_html=True)
             a1,a2,a3,a4 = st.columns(4)
             bike   = a1.checkbox("🛵 Bike",   value=True)
             tiffin = a2.checkbox("🍱 Tiffin", value=True)
@@ -1391,81 +1538,92 @@ elif st.session_state.page == "results":
 
     # Header banner
     st.markdown(f"""
-    <div style="background:linear-gradient(135deg,#0f0c29,#302b63);border-radius:16px;
-         padding:1.4rem 2rem;color:#fff;margin-bottom:1.5rem;
-         box-shadow:0 4px 20px rgba(99,102,241,.2)">
-      <div style="display:flex;justify-content:space-between;align-items:center">
+    <div style="background:linear-gradient(135deg,#0f0c29,#302b63);border-radius:20px;
+         padding:1.6rem 2rem;color:#fff;margin-bottom:1.75rem;
+         box-shadow:0 8px 32px rgba(99,102,241,.25)">
+      <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem">
         <div>
-          <h2 style="margin:0;color:#fff;font-size:1.6rem">👋 Hi {fd['name']}!</h2>
-          <p style="margin:.3rem 0 0;opacity:.8;font-size:.9rem">
-            Your top 2 areas in <b>{city}</b> · matched to your preferences
+          <div style="font-size:.75rem;color:rgba(255,255,255,.55);font-weight:600;
+            text-transform:uppercase;letter-spacing:.1em;margin-bottom:.3rem">Your Relocation Plan</div>
+          <h2 style="margin:0;color:#fff;font-size:1.65rem;font-weight:800">👋 Hi {fd['name']}!</h2>
+          <p style="margin:.3rem 0 0;opacity:.7;font-size:.88rem">
+            Top matches in <b>{city}</b> · Budget ₹{fd['budget']:,}/mo · {len(fd.get('lifestyle',[]))} lifestyle filters
           </p>
         </div>
-        <div style="text-align:right">
-          <div style="font-size:.75rem;opacity:.7">Best match</div>
-          <div style="font-size:1.8rem;font-weight:800;color:#a5b4fc">{top2[0][1]['score']}%</div>
+        <div style="text-align:center;background:rgba(255,255,255,.08);border-radius:16px;
+          padding:.8rem 1.2rem;border:1px solid rgba(255,255,255,.12)">
+          <div style="font-size:.68rem;color:rgba(255,255,255,.55);text-transform:uppercase;
+            letter-spacing:.1em">Best Match</div>
+          <div style="font-size:2rem;font-weight:900;color:#a5b4fc;line-height:1">{top2[0][1]['score']}%</div>
+          <div style="font-size:.7rem;color:rgba(255,255,255,.5)">{top_name}</div>
         </div>
       </div>
     </div>""", unsafe_allow_html=True)
 
     # ── Top 2 Area Cards ──
-    st.markdown('<div class="sec-header">🏆 Recommended Areas</div>', unsafe_allow_html=True)
+    st.markdown("""<div class="sec-header">
+      <span class="sec-header-text">🏆 Your Top Matches</span>
+      <div class="sec-header-line"></div>
+    </div>""", unsafe_allow_html=True)
     ac = st.columns(2)
+    _tag_colors = ["tag-purple","tag-blue","tag-green","tag-orange"]
     for i, (aname, ainfo) in enumerate(top2):
         d = ainfo["data"]; s = ainfo["score"]
-        col = score_color(s)
+        sc = score_color(s)
         winner = i == 0
         with ac[i]:
-            tag_html = "".join(f'<span class="tag">{t}</span>' for t in d.get("tags",[]))
+            tag_html = "".join(f'<span class="tag {_tag_colors[j%4]}">{t}</span>'
+                               for j,t in enumerate(d.get("tags",[])))
+            top_grad = ("linear-gradient(90deg,#6366f1,#8b5cf6,#f0abfc)"
+                        if winner else "linear-gradient(90deg,#10b981,#34d399)")
+            badge_bg = "#ede9fe" if winner else "#dcfce7"
+            badge_fg = "#5b21b6" if winner else "#15803d"
+            badge_txt = "🥇 Best Match" if winner else "🥈 Runner-Up"
             st.markdown(f"""
-            <div class="card {'card-winner' if winner else ''}">
-              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem">
-                <div>
-                  <h3 style="margin:0;font-size:1.2rem">{aname}</h3>
-                  <div style="margin-top:.3rem">{tag_html}</div>
+            <div style="background:#fff;border:{'2px solid #6366f1' if winner else '1px solid #e5e7eb'};
+              border-radius:20px;overflow:hidden;
+              box-shadow:{'0 4px 24px rgba(99,102,241,.15)' if winner else '0 2px 8px rgba(0,0,0,.05)'};
+              margin-bottom:.75rem">
+              <div style="height:5px;background:{top_grad}"></div>
+              <div style="padding:1.4rem">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.6rem">
+                  <div>
+                    <h3 style="margin:0;font-size:1.15rem;font-weight:800;color:#0f172a">{aname}</h3>
+                    <div style="margin-top:.4rem">{tag_html}</div>
+                  </div>
+                  <span style="background:{badge_bg};color:{badge_fg};border-radius:999px;
+                    padding:.2rem .8rem;font-size:.7rem;font-weight:800;white-space:nowrap;
+                    flex-shrink:0;margin-left:.5rem">{badge_txt}</span>
                 </div>
-                <span style="background:{'#ede9fe' if winner else '#f0fdf4'};
-                  color:{'#6d28d9' if winner else '#16a34a'};border-radius:999px;
-                  padding:.2rem .8rem;font-size:.72rem;font-weight:800;white-space:nowrap">
-                  {'🥇 Best Match' if winner else '🥈 Runner-Up'}
-                </span>
-              </div>
-              <p style="color:#6b7280;font-size:.83rem;margin-bottom:1rem;line-height:1.5">{d['desc']}</p>
-
-              <div style="display:flex;gap:.75rem;margin-bottom:1rem">
-                <div class="metric" style="flex:1">
-                  <div class="metric-label">Avg Rent</div>
-                  <div class="metric-value" style="color:#6366f1">₹{d['avg_rent']:,}</div>
+                <p style="color:#64748b;font-size:.82rem;margin-bottom:1rem;line-height:1.55">{d['desc']}</p>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin-bottom:1rem">
+                  <div class="metric">
+                    <div class="metric-label">Rent</div>
+                    <div class="metric-value" style="color:#6366f1;font-size:1rem">₹{d['avg_rent']//1000}k</div>
+                  </div>
+                  <div class="metric">
+                    <div class="metric-label">Match</div>
+                    <div class="metric-value" style="color:{sc}">{s}%</div>
+                  </div>
+                  <div class="metric">
+                    <div class="metric-label">Social</div>
+                    <div class="metric-value" style="color:#f59e0b;font-size:.85rem">{stars(d['social'])}</div>
+                  </div>
                 </div>
-                <div class="metric" style="flex:1">
-                  <div class="metric-label">Match Score</div>
-                  <div class="metric-value" style="color:{col}">{s}%</div>
-                </div>
-                <div class="metric" style="flex:1">
-                  <div class="metric-label">Social Life</div>
-                  <div class="metric-value" style="color:#f59e0b">{stars(d['social'])}</div>
-                </div>
-              </div>
-
-              <div style="font-size:.82rem">
-                <div style="display:flex;justify-content:space-between;margin-bottom:.15rem">
-                  <span style="color:#6b7280">🛡 Safety</span>
-                  <span style="font-weight:600">{stars(d['safety'])}</span>
-                </div>
-                <div class="score-bar-bg"><div class="score-bar"
-                  style="width:{d['safety']*20}%;background:#6366f1"></div></div>
-
-                <div style="display:flex;justify-content:space-between;margin-bottom:.15rem">
-                  <span style="color:#6b7280">🚇 Commute</span>
-                  <span style="font-weight:600">{stars(d['commute'])}</span>
-                </div>
-                <div class="score-bar-bg"><div class="score-bar"
-                  style="width:{d['commute']*20}%;background:#10b981"></div></div>
-
-                <div style="margin-top:.4rem;font-size:.8rem">
-                  🏋 Gym: {"✅" if d['gym'] else "❌"} &nbsp;·&nbsp;
-                  🛕 Temple: {"✅" if d['temple'] else "❌"} &nbsp;·&nbsp;
-                  📍 {d.get('landmark','')}
+                <div style="font-size:.8rem">
+                  <div class="score-bar-wrap">
+                    <div class="score-bar-label"><span>🛡 Safety</span><span style="color:#6366f1;font-weight:700">{stars(d['safety'])}</span></div>
+                    <div class="score-bar-bg"><div class="score-bar-fill" style="width:{d['safety']*20}%;background:linear-gradient(90deg,#6366f1,#8b5cf6)"></div></div>
+                  </div>
+                  <div class="score-bar-wrap">
+                    <div class="score-bar-label"><span>🚇 Commute</span><span style="color:#10b981;font-weight:700">{stars(d['commute'])}</span></div>
+                    <div class="score-bar-bg"><div class="score-bar-fill" style="width:{d['commute']*20}%;background:linear-gradient(90deg,#10b981,#34d399)"></div></div>
+                  </div>
+                  <div style="display:flex;gap:.75rem;margin-top:.3rem;font-size:.78rem;color:#64748b">
+                    <span>🏋 {'✅' if d['gym'] else '❌'} Gym</span>
+                    <span>🛕 {'✅' if d['temple'] else '❌'} Temple</span>
+                    <span>📍 {d.get('landmark','')}</span>
+                  </div>
                 </div>
               </div>
             </div>""", unsafe_allow_html=True)
@@ -1473,7 +1631,10 @@ elif st.session_state.page == "results":
     st.markdown("<br>", unsafe_allow_html=True)
 
     # ── Nearby Places tabs ──
-    st.markdown(f'<div class="sec-header">📍 Nearby Places — {top_name}</div>', unsafe_allow_html=True)
+    st.markdown(f"""<div class="sec-header">
+      <span class="sec-header-text">📍 Nearby Places — {top_name}</span>
+      <div class="sec-header-line"></div>
+    </div>""", unsafe_allow_html=True)
     tab_r, tab_p = st.tabs(["🍽 Restaurants & Cafes", "🎉 House Parties & Nightlife"])
 
     with tab_r:
@@ -1496,39 +1657,55 @@ elif st.session_state.page == "results":
     b_col, c_col = st.columns(2)
 
     with b_col:
-        st.markdown(f'<div class="sec-header">📦 Starter Bundle — {top_name}</div>', unsafe_allow_html=True)
+        st.markdown(f"""<div class="sec-header">
+          <span class="sec-header-text">📦 Starter Bundle — {top_name}</span>
+          <div class="sec-header-line"></div>
+        </div>""", unsafe_allow_html=True)
         bundle = [("🏠","Accommodation", vnd["accommodation"]),("🛍","Nearest Mall",vnd["mall"]),("🛕","Temple / Meditation",vnd["temple"])]
         if fd["tiffin"]: bundle.insert(1,("🍱","Tiffin Plan",    vnd["tiffin"]))
         if fd["bike"]:   bundle.insert(2,("🛵","Bike Rental",    vnd["bike"]))
         if fd["maid"]:   bundle.insert(3,("🧹","Maid Service",   vnd["maid"]))
         if fd["gym"]:    bundle.insert(4,("🏋","Gym",             vnd["gym"]))
+        bundle_html = ""
         for icon, label, vendor in bundle:
-            st.markdown(f"""
-            <div style="display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-bottom:1px solid #f1f5f9">
-              <span style="font-size:1.1rem;min-width:1.4rem">{icon}</span>
-              <span style="flex:1;font-weight:600;font-size:.88rem">{label}</span>
-              <span style="color:#6366f1;font-size:.78rem;font-weight:600">{vendor}</span>
-            </div>""", unsafe_allow_html=True)
+            bundle_html += f"""
+            <div class="bundle-row">
+              <div class="bundle-icon">{icon}</div>
+              <div class="bundle-label">{label}</div>
+              <div class="bundle-vendor">{vendor}</div>
+            </div>"""
+        st.markdown(f'<div class="card" style="padding:1rem">{bundle_html}</div>', unsafe_allow_html=True)
 
     with c_col:
-        st.markdown(f'<div class="sec-header">💰 Monthly Breakdown — {top_name}</div>', unsafe_allow_html=True)
+        st.markdown(f"""<div class="sec-header">
+          <span class="sec-header-text">💰 Monthly Breakdown</span>
+          <div class="sec-header-line"></div>
+        </div>""", unsafe_allow_html=True)
+        rows_html = ""
         for item, amt in costs.items():
-            st.markdown(f"""
+            rows_html += f"""
             <div class="cost-row">
-              <span style="color:#374151">{item}</span>
-              <span style="font-weight:700">₹{amt:,}</span>
-            </div>""", unsafe_allow_html=True)
+              <span class="cost-label">{item}</span>
+              <span class="cost-amount">₹{amt:,}</span>
+            </div>"""
+        st.markdown(f'<div class="card" style="padding:1rem 1.1rem">{rows_html}</div>', unsafe_allow_html=True)
         st.markdown(f"""
-        <div class="cost-total">
-          <span style="color:#fff;font-weight:600;font-size:1rem">Total / Month</span>
-          <span style="color:#fff;font-weight:800;font-size:1.4rem">₹{total:,}</span>
+        <div class="cost-total-box">
+          <div>
+            <div style="color:rgba(255,255,255,.6);font-size:.7rem;text-transform:uppercase;letter-spacing:.08em">Total Monthly Cost</div>
+            <div style="color:#fff;font-weight:800;font-size:1.5rem;margin-top:.1rem">₹{total:,}</div>
+          </div>
+          <div style="text-align:right">
+            <div style="color:rgba(255,255,255,.5);font-size:.7rem">{top_name}</div>
+            <div style="color:#a5b4fc;font-size:.8rem;font-weight:600">{city}</div>
+          </div>
         </div>""", unsafe_allow_html=True)
 
     # ── CTA Buttons ──
     st.markdown("<br>", unsafe_allow_html=True)
     btn1, btn2 = st.columns(2)
     with btn1:
-        if st.button(f"⚡  Activate My Move to {top_name}"):
+        if st.button(f"⚡  Activate My Move → {top_name}"):
             st.balloons()
             st.success(f"🎉 Plan activated for **{top_name}, {city}**! We'll be in touch shortly.")
     with btn2:
@@ -1536,10 +1713,12 @@ elif st.session_state.page == "results":
                   f"Budget ₹{fd['budget']:,}/mo. Please help me activate my move!")
         st.markdown(
             f'<a href="https://wa.me/{WA_NUMBER}?text={urllib.parse.quote(wa_msg)}" target="_blank"'
-            f' style="display:block;background:#25d366;color:#fff;text-align:center;'
-            f'border-radius:10px;padding:.62rem;font-weight:700;font-size:.9rem;'
-            f'text-decoration:none;box-shadow:0 4px 16px rgba(37,211,102,.35)">💬  WhatsApp My Plan</a>',
+            f' style="display:block;background:linear-gradient(135deg,#25d366,#128c7e);'
+            f'color:#fff;text-align:center;border-radius:12px;padding:.68rem;font-weight:700;'
+            f'font-size:.9rem;text-decoration:none;letter-spacing:.02em;'
+            f'box-shadow:0 4px 16px rgba(37,211,102,.4)">💬  WhatsApp My Plan</a>',
             unsafe_allow_html=True)
+    st.markdown("<br>", unsafe_allow_html=True)
 
     # ── All scores expander ──
     with st.expander("📊 All Area Scores"):
